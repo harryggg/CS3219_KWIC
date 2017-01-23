@@ -3,9 +3,9 @@ package modules;
 import java.util.List;
 import objects.Line;
 
-public class Printer {
+public class Output {
 
-	public Printer() {
+	public Output() {
 	}
 
 	public void printList(List<Line> list) {

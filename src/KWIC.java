@@ -1,35 +1,27 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import modules.CircularShifter;
-import modules.Printer;
+import modules.Input;
+import modules.Output;
 import modules.Sorter;
 import objects.Line;
 
 public class KWIC {
 	public static void main(String[] args) {
-		//Read Input & Initialise lineList
-		Scanner sc = new Scanner(System.in);
-		List<Line> lineList = new ArrayList<Line>();
-
-		while (true) {
-			String input = sc.nextLine();
-			if (input.isEmpty())
-					break;
-			Line entry = new Line(input);
-			lineList.add(entry);
-		}
+		//Input
+		Input input = new Input(new Scanner(System.in));
+		List<Line> inputLine = input.read();
 
 		//Shifter
-		CircularShifter shifter = new CircularShifter(lineList);
+		CircularShifter shifter = new CircularShifter(inputLine);
 		List<Line> result = shifter.generateShiftedResult();
 
 		//Sorter
 		Sorter sorter = new Sorter();
 		result = sorter.sort(result);
 
-		//Print Out
-		Printer printer = new Printer();
-		printer.printList(result);
+		//Output
+		Output output = new Output();
+		output.printList(result);
 	}
 }

@@ -5,9 +5,9 @@ import java.util.List;
 
 import objects.Line;
 
-public class Sorter {
+public class Alphatizer {
 
-	public Sorter(){
+	public Alphatizer(){
 	}
 
 	public List<Line> sort(List<Line> lines) {

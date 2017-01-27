@@ -27,12 +27,15 @@ public class CircularShifter extends Filter {
 	public List<Line> generateShiftedResult() {
 		ArrayList<Line> result = new ArrayList<Line>();
 		for (Line line:lines){
-						if (!IGNORED_WORD_SET.contains(line.getWords()[0].toLowerCase())) {
-								result.add(line);
-						}
+			if (!IGNORED_WORD_SET.contains(line.getWords()[0].toLowerCase())) {
+				result.add(line);
+			}
 			for (int i = 0; i < line.getWords().length; i++){
 				if (IGNORED_WORD_SET.contains(line.getWords()[i].toLowerCase())){
-					result.add(generateShiftedNewLineFromIndex(line,i));
+					Line shiftedLine = generateShiftedNewLineFromIndex(line,i);
+					if (!IGNORED_WORD_SET.contains(shiftedLine.getWords()[0].toLowerCase())) {
+						result.add(shiftedLine);
+					}
 				}
 			}
 		}

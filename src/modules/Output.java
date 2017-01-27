@@ -2,8 +2,9 @@ package modules;
 
 import java.util.List;
 import objects.Line;
+import objects.Sink;
 
-public class Output {
+public class Output extends Sink {
 
 	private static String OUTPUT_START_LINE = "=========OUTPUT START=============";
 	private static String OUTPUT_END_LINE = "=========OUTPUT ENDS===============";

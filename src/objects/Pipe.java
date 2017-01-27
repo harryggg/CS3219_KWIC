@@ -1,28 +1,16 @@
 package objects;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import modules.*;
 
 public class Pipe {
 
-	private List<Line> lines;
+	private List<Line> buffer;
 
-	public Pipe(){
-		lines = new ArrayList<Line>();
+	List<Line> read() {
+		return this.buffer;
 	}
 
-	public void getInput(){
-		Input input = new Input(new Scanner(System.in));
-		lines = input.read();
+	void write(List<Line> s) {
+		this.buffer = s;
 	}
-
-	public void doCircularShift(){
-		CircularShifter shifter = new CircularShifter(lines);
-		lines = shifter.generateShiftedResult();
-	}
-	
-	
 }

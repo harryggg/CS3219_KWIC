@@ -2,10 +2,11 @@ package modules;
 
 import java.util.Collections;
 import java.util.List;
+import objects.Filter;
 
 import objects.Line;
 
-public class Alphatizer {
+public class Alphatizer extends Filter {
 
 	public Alphatizer(){
 	}
@@ -18,5 +19,10 @@ public class Alphatizer {
 	//Can implement other sort algorithms if necessary
 	public List<Line> customSort(List<Line> lines) {
 		return lines;
+	}
+
+	@Override
+	public void run() {
+		super.write(sort(super.read()));
 	}
 }

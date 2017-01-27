@@ -5,7 +5,7 @@ public class Line implements Comparable<Line> {
 	private static String DELIMETER = " ";
 	private String[] words;
 
-		public Line(String str){
+	public Line(String str){
 		this.words = str.split(DELIMETER);
 	}
 

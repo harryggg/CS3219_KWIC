@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import objects.Line;
+import objects.Pump;
 
-public class Input {
+public class Input extends Pump {
 
 	Scanner sc;
 
@@ -28,5 +29,10 @@ public class Input {
 		}
 
 		return lineList;
+	}
+
+	@Override
+	public List<Line> getContents() {
+		return read();
 	}
 }

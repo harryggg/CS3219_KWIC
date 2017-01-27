@@ -5,16 +5,20 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import objects.Filter;
 
 import objects.Line;
 
-public class CircularShifter {
+public class CircularShifter extends Filter {
 
 	private List<Line> lines;
 
 	private static String[] IGNORED_WORD_LIST = {"after","as","and","of","is","the","a"};
 
 	private static final Set<String> IGNORED_WORD_SET = new HashSet<String>(Arrays.asList(IGNORED_WORD_LIST));
+
+	public CircularShifter() {
+	}
 
 	public CircularShifter(List<Line> lines){
 		this.lines = lines;
@@ -46,5 +50,11 @@ public class CircularShifter {
 			words[count++] = line.getWords()[i];
 		}
 		return new Line(words);
+	}
+
+	@Override
+	public void run() {
+		this.lines = super.read();
+		super.write(generateShiftedResult());
 	}
 }
